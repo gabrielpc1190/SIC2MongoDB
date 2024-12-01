@@ -11,4 +11,4 @@ https://www.hacienda.go.cr/docs/Sic_Tributacion.msi
 * Utilizar el script process_split.sh para dar el formato correcto a las cedulas.
   Se incluye un pequeño ejemplo del archivo exportado del Microsoft Access MDB a CSV para probar el script.
 * Subir a MongoDB en dos collections, una para cedulas físicas y otra para jurídicas, conservando la primer fila con los nombres de columnas.
-**  Se debe asegurar que el campo de CEDULA se utiliza como tipo string.
+* * Se debe asegurar que el campo de CEDULA se utiliza como tipo string.
