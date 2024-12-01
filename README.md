@@ -1,2 +1,11 @@
-# SICaMongoDB
-Cómo convertir la base de datos del SIC del Ministerio de Hacienda de Costa Rica a MongoDB
+Stage1:
+
+Descargar el SIC desde la página de Hacienda.
+Instalarlo en la computadora.
+Usar accesspv para ver la contraseña del MDB.
+Utilizar Microsoft Access para exportar las 2 tablas en CSV
+
+Stage2:
+
+Utilizar el script process_split.sh para dar el formato correcto a las cedulas
+Subir a MongoDB en dos collections, una para cedulas físicas y otra para jurídicas, conservando la primer fila con los nombres de columnas
