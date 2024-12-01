@@ -9,7 +9,7 @@ prompt() {
 }
 
 # Default values for parameters
-DEFAULT_INPUT_FILE="input_fisica.csv"
+DEFAULT_INPUT_FILE="SIC0001Fisicas.csv"
 DEFAULT_OUTPUT_PREFIX="output_part_"
 DEFAULT_LINES_PER_PART=1000000
 DEFAULT_PARALLEL_PROCESSES=4
@@ -29,6 +29,14 @@ fi
 # Split the input file into smaller parts
 echo "Splitting input file into parts..."
 split -l "$LINES_PER_PART" --additional-suffix=.csv "$INPUT_FILE" "$OUTPUT_PREFIX"
+
+# Normalize line endings in all split files
+echo "Normalizing line endings in split files..."
+for file in ${OUTPUT_PREFIX}*.csv; do
+    mv "$file" "${file}_tmp"                  # Rename the file temporarily
+    tr -d '\r' < "${file}_tmp" > "$file"      # Remove carriage return characters
+    rm "${file}_tmp"                          # Remove the temporary file
+done
 
 # Get the list of split files
 SPLIT_FILES=($(ls ${OUTPUT_PREFIX}*.csv))
